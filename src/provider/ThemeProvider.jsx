@@ -12,9 +12,9 @@ export const ThemeProvider = ({ children }) => {
 
   const toggleTheme = () => {
     const newTheme = theme === "light" ? "dark" : "light";
-    setTheme(newTheme); // write to local storage
+    setTheme(newTheme);
     document.documentElement.setAttribute("theme", newTheme);
-    localStorage.setItem("theme", newTheme); // html set attribute
+    localStorage.setItem("theme", newTheme);
   };
 
   return (

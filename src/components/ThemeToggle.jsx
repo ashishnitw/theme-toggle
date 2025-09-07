@@ -6,38 +6,36 @@ const ThemeToggle = () => {
   const { theme, toggleTheme } = useTheme();
 
   return (
-    <>
-      <button
-        onClick={toggleTheme}
-        className="relative flex items-center justify-center rounded-2xl transition-colors"
-      >
-        <AnimatePresence mode="wait" initial={false}>
-          {theme === "light" ? (
-            <motion.div
-              key="sun"
-              initial={{ y: -20, opacity: 0, rotate: -90 }}
-              animate={{ y: 0, opacity: 1, rotate: 0 }}
-              exit={{ y: 20, opacity: 0, rotate: 90 }}
-              transition={{ duration: 0.3 }}
-              className="text-orange-500"
-            >
-              <Sun size={24} />
-            </motion.div>
-          ) : (
-            <motion.div
-              key="moon"
-              initial={{ y: -20, opacity: 0, rotate: -90 }}
-              animate={{ y: 0, opacity: 1, rotate: 0 }}
-              exit={{ y: 20, opacity: 0, rotate: 90 }}
-              transition={{ duration: 0.3 }}
-              className="text-white-500"
-            >
-              <Moon size={24} />
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </button>
-    </>
+    <button
+      onClick={toggleTheme}
+      className="relative flex items-center justify-center rounded-2xl transition-colors"
+    >
+      <AnimatePresence mode="wait" initial={false}>
+        {theme === "light" ? (
+          <motion.div
+            key="sun"
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            exit={{ scale: 0.8, opacity: 0 }}
+            transition={{ duration: 0.2, ease: "easeOut" }}
+            className="text-orange-500"
+          >
+            <Sun size={24} />
+          </motion.div>
+        ) : (
+          <motion.div
+            key="moon"
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            exit={{ scale: 0.8, opacity: 0 }}
+            transition={{ duration: 0.2, ease: "easeOut" }}
+            className="text-white"
+          >
+            <Moon size={24} />
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </button>
   );
 };
 
